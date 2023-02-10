@@ -1,0 +1,8 @@
+estar pocicionados en la carpera principal
+git init , inicia el repocitorio 
+git status, conocemos el estado general de los archivos
+git add . , para agregar los archivos al stage
+git status , para saber que todo quedo bien (verde)
+git commit -m "mensaje x" , para cargar ls archivos al commit
+git remote add origin(nombre variable)link de github, asiginarn el lugar donde se sube el repositorio 
+git push origin main, se sube el archivo 
