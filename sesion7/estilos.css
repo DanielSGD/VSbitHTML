@@ -1,0 +1,45 @@
+/*
+regla en css
+selector {
+    propiedad : valor;
+    propiedad : valor;
+}
+ selector puede ser:
+ -etiqueta(nobre)
+ -clases (class .) : agrupa una o multiples etiquetas, que tenga una caracteristica en comun
+ - ID (id #): es unico, no puede haber dos iguales
+*/
+
+p {
+    color: #9e1616;
+
+}
+
+button {
+    background-color: blue;
+
+}
+
+h1 { 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.titulo {
+    color:green
+}
+.cursiva {
+    font-style: italic;
+}
+#btn{
+    padding: 20px;
+    background-color: blueviolet; 
+}
+.contenedor{
+    border: 0.1em dotted #000;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+.espaciado{
+    padding: 15px;
+}

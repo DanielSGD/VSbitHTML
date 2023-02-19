@@ -1,0 +1,21 @@
+.contenedor{
+    display: flex;
+    border: 2px solid #000;
+    flex-direction: column-reverse;
+    max-width: 800px;
+    margin: 20px;
+
+}
+.item{
+   
+    color: #fff;
+    background-color: blue;
+    margin: 20px;
+    text-align: center;
+
+}
+/*
+.boton{
+    width: 10px;
+}
+*/
