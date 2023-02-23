@@ -1,0 +1,13 @@
+
+.contenedor {
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+    color: white;
+    background-color: black;
+}
+.cont2{
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(61, 56, 56);
+}
