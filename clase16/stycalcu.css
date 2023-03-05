@@ -1,0 +1,36 @@
+.contenedor {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    max-width: 300px;
+    background-color: black;
+    
+    border:2px solid black;
+    
+}
+.item{
+    padding-top: 5px;
+    background-color: rgb(12, 7, 2);
+    color: #072a9c;
+    height:50px;
+    border: 1px solid rgb(31, 4, 80);
+    border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    
+    
+}
+#text{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    background-color: rgb(245, 246, 250);
+    color: black;
+    border-radius: 0px;
+
+}
+#cero{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
