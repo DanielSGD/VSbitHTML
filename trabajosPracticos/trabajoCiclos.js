@@ -72,7 +72,7 @@ var opciones = parseInt(
 );
 var extraer = 0;
 var depositar = 0;
-for (var i = 0; i <= opciones; i++) {
+for (var i = opciones; i <= 5; i++) {
   
   if (opciones > 5 || opciones < 1) {
     alert("ingreso una opcion erronea, por favor vuelva a elegir");
@@ -197,7 +197,7 @@ Según un número ingresado por el usuario, mostrar la secuencia de Fibonacci ha
 Ej: el usuario ingresa el 8, mostrar:
 0 1 1 2 3 5 8 13 21 34 */
 
-var n = parseInt(prompt("Ingrese un número"));
+/* var n = parseInt(prompt("Ingrese un número"));
 
 var a = 0;
 var b = 1;
@@ -209,4 +209,4 @@ for (var i = 1; i <= n; i++) {
   console.log(c);
   a = b;
   b = c;
-}
+} */
