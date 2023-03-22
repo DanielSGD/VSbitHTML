@@ -41,7 +41,7 @@ $(document).ready(function () {
     $("#cuarto").show();
   });
 
-  var pagar = 0;
+  
   var j = 0;
 
   $(".boton").click(function () {
@@ -51,11 +51,12 @@ $(document).ready(function () {
     var cantidad = parseInt($("#cantidad" + id).val());
     var total = precio * cantidad;
 
-    j++;
+    
     localStorage.setItem("nombre" + j, nombre);
     localStorage.setItem("precio" + j, precio);
     localStorage.setItem("cantidad" + j, cantidad);
     localStorage.setItem("total" + j, total);
+    j++;
     localStorage.setItem("contador", j);
 
     $("#alert").text(nombre + " se agrego al carrito");
@@ -63,22 +64,27 @@ $(document).ready(function () {
       "ve a la seccion carrito del menu para seguir con la compra"
     );
     $("#cantidad" + id).val("");
-    console.log(localStorage.getItem("nombre"));
     crear_tabla();
+    
   });
 
+  if(parseInt(localStorage.getItem('contador') ) > 0 ){
+    crear_tabla();
+  }
+
+
+
+
+
+
   function crear_tabla() {
-    /* var nom = localStorage.getItem("nombre").split(",")
-        var prec = localStorage.getItem("precio").split(",")
-        var cant = localStorage.getItem("cantidad").split(",")
-        var totl = localStorage.getItem("total").split(",") */
-        borrar_tabla()
+    $("#tabla").empty();
+    var pagar = 0;
     j = parseInt(localStorage.getItem("contador"));
     var tabla = $("#tabla");
     var fila;
 
-    
-/*     for (var i = 1; i <= j; i++) {
+     for (var i = 0; i < j; i++) {
       fila = $("<tr>").append(
         $("<td>").text(localStorage.getItem("nombre" + i)),
         $("<td>").text(localStorage.getItem("cantidad" + i)),
@@ -88,22 +94,10 @@ $(document).ready(function () {
       tabla.append(fila);
       pagar = pagar + parseInt(localStorage.getItem("total" + i));
 
-      /* var ultimaFila = tabla.find("tr:last");
-            ultimaFila.append("<td>" + nom[i] + "</td>");
-            ultimaFila.append("<td>" + cant[i] + "</td>");
-            ultimaFila.append("<td>" + prec[i] + "</td>");
-            ultimaFila.append("<td>" + totl[i] + "</td>");
+     
       }
-            */
-    
-    $("#total_pagar").text(pagar);
-  }
 
-  function borrar_tabla(){
-console.log("borrando tabla")
-    while($("#tabla").firstChild){
-      $("#tabla").removeChild($("#tabla").lastChild)
-    }
+    $("#total_pagar").text(pagar);
   }
 
 
