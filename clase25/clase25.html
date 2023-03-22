@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="container text-center">
+        <div class="row">
+          <div class="col">
+          
+         <h2 class="text-bg-secondary p-2">Ingrese los siguientes datos</h2> <br><br>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+         <span class="input-group-text fw-semibold text-bg-secondary p-2" id="basic-addon1" >Nombre</span>
+        <input type="text" class="form-control" id="nombre"  aria-label="Username" aria-describedby="basic-addon1"><br>
+        <span class="input-group-text fw-semibold text-bg-secondary p-2" id="basic-addon1">Apelido</span>
+        <input type="text" class="form-control" id="apellido"  aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text fw-semibold text-bg-secondary p-2" id="basic-addon1">Direccion</span>
+                    <input type="text" class="form-control" id="direccion"  aria-label="Username" aria-describedby="basic-addon1"><br>
+                    <span class="input-group-text fw-semibold text-bg-secondary p-2" id="basic-addon1">Telefono</span>
+                    <input type="number" class="form-control" id="telefono" aria-label="Username" aria-describedby="basic-addon1">
+
+                </div>
+                <select class="form-select text-bg-secondary p-2 fw-semibold" id="serie" aria-label="Default select example">
+                    <option selected>seleccione su serie favorita</option>
+                    <option >Squid Game</option>
+                    <option >Bridgerton</option>
+                    <option >Stranger Things</option>
+                    <option >The Witcher</option>
+                    <option >Lupin</option>
+                
+                  </select> <br> <br>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="guardar" class="btn btn-secondary fw-semibold">guardar</button>
+                    <button type="button" id="recuperar" class="btn btn-secondary fw-semibold">recuperar</button>
+                    
+                  </div>
+
+            </div>
+                </div>
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <h4 class="text-md-start " id="nombreGuardado"></h4>
+            <h4 class="text-md-start" id="apellidoGuardado"></h4>
+            <h4 class="text-md-start" id="direccionGuardado"></h4>
+            <h4 class="text-md-start" id="telefonoGuardado"></h4>
+            <h4 class="text-md-start" id="serieGuardado"></h4>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+  <script src="./clase25.js"></script>  
+</body>
+</html>
