@@ -170,6 +170,13 @@
           <br />
           <h3>seleccione sus productos</h3>
           <br />
+          <select id="eleccion" class="form-select" aria-label="Default select example">
+            <option value="todos">todo</option>
+            <option value="celulares">celulares</option>
+            <option value="ropa">ropa</option>
+            <option value="computadores">computadores</option>
+          </select>
+
           <div class="alert alert-success" role="alert">
             <h4 id="alert" class="alert-heading"></h4>
             <p id="mensaje" class="mb-0"></p>
@@ -180,7 +187,7 @@
 
       <div class="row">
         <div class="col">
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="celular">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 1</h5>
@@ -188,12 +195,12 @@
                 Some quick example text to build on the card title and make up
                 procio: $1000
               </p>
-              <input type="number" name="" id="cantidadb1" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb1" placeholder=" cantidad" min="1" value="1">
               <a href="#" id="b1" class="btn btn-primary boton"  data-preciob1="1000" data-productob1="Producto 1">enviar a carro</a>
             </div>
           </div>
           <br />
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="ropa">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 2</h5>
@@ -203,14 +210,14 @@
             
 
               </p>
-              <input type="number" name="" id="cantidadb2" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb2" placeholder=" cantidad" min="1" value="1">
               <a href="#" id="b2" class="btn btn-primary boton" data-preciob2="1500" data-productob2="Producto 2">enviar a carro</a>
 
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="computadores">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 3</h5>
@@ -218,12 +225,12 @@
                 Some quick example text to build on the card title and make up
                 precio: $1700
               </p>
-              <input type="number" name="" id="cantidadb3" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb3" placeholder=" cantidad" min="1" value="1">
               <a href="#" id="b3" class="btn btn-primary boton" data-preciob3="1700" data-productob3="Producto 3">enviar a carro</a>
             </div>
           </div>
           <br />
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="computadores">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 4</h5>
@@ -231,13 +238,13 @@
                 Some quick example text to build on the card title and make up
                 precio: $2000
               </p>
-              <input type="number" name="" id="cantidadb4" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb4" placeholder=" cantidad" min="1" value="1">
               <a href="#" id="b4" class="btn btn-primary boton" data-preciob4="2000" data-productob4="Producto 4">enviar a carro</a>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="celular">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 5</h5>
@@ -245,12 +252,12 @@
                 Some quick example text to build on the card title and make up
                 precio: $800
               </p>
-              <input type="number" name="" id="cantidadb5" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb5" placeholder=" cantidad" min="1" value="1">
               <a href="#" id="b5" class="btn btn-primary boton" data-preciob5="800" data-productob5="Producto 5">enviar a carro</a>
             </div>
           </div>
           <br />
-          <div class="card" style="width: 18rem">
+          <div class="card elemento" style="width: 18rem" data-tipo="computadores">
             <img src="./imjProducto.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">producto 6</h5>
@@ -258,7 +265,7 @@
                 Some quick example text to build on the card title and make up
                 precio: $2200
               </p> 
-              <input type="number" name="" id="cantidadb6" placeholder=" cantidad" min="1">
+              <input type="number" name="" id="cantidadb6" placeholder=" cantidad" min="1" value="1">
               <a href="#"  id="b6" class="btn btn-primary boton" data-preciob6="2200" data-productob6="Producto 6">enviar a carro</a>
             </div>
           </div>
@@ -289,12 +296,16 @@
           <br />
           <h3>productos en el carrito de compras</h3>
           <br />
+          <div id="noProductos" class="alert alert-success" role="alert">
+            <h4 id="mensaje1" class="alert-heading">no hay productos en el carrito</h4>
+            <p id="mensaje2" class="mb-0">por favor vaya a la seccion producto </p>
+          </div>
           <br />
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <table class="table table-striped">
+          <table id="tabla_total" class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">producto</th>
@@ -319,10 +330,36 @@
           </table>
           <br>
           <br>
-          <div class="btn-group  " role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary">comprar</button>
-           
+          <div id="boton_comprar" class="btn-group  " role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">Comprar</button>
           </div>
+          <div  class="btn-group  " role="group" aria-label="Basic example">
+            <button id="boton_historial" type="button" class="btn btn-primary">Historial de compra</button>
+          </div>
+          <br>
+          <table id="tabla_historial" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">producto</th>
+                <th scope="col">cantidad</th>
+                <th scope="col">precio</th>
+                <th scope="col">total</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="Ctabla">
+              
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3"><strong>total a pagar</strong> </td>
+                <td id="totalHistorial"></td>
+              </tr>
+
+
+            </tfoot>
+          </table>
         </div>
       </div>
     </div>
