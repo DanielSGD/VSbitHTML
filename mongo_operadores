@@ -1,0 +1,173 @@
+forma para realizar consulta:
+{clave : valor}
+ejemplo con operadores 
+{clave : {operador: valor}}
+
+ejemplo traer con todos los que tenan marca apple
+{marca:"apple"}
+
+
+operadores matematicos para mongoDB:
+$eq ---> igual que
+$ne ---> distinto que
+ejemplo de arriba
+{marca: { $eq: "apple }}
+$gt ----> valores mayores que
+$gte ---> valores mayores o iguales que
+$lt ----> valores menores que
+$tle ----> valores menores o iguales que 
+
+
+operadores logicos :
+para and o && en mongo se colocan las condiciones separadas por comas
+ejemplo {edad: {$gte:18},talle:"M"} 
+
+-para el or || es:
+{$or: [{clave:valor}, {clave:valor} ] }
+ejemplo para que el genero sea masculino o sea mayor de edas
+{$or: [ {genero: "M"},{edad: {$eq: 18 }}]}
+
+
+se pueden combinar el and y el or 
+{clave:valor, {$or: [{ clave:valor}, {clave:valor }]}}
+
+-ejemplo obtener aquellas personas que su apellido comienza con "D" y que son mujeres o mayor a 50 años
+{ apellid:{$regex:/^D/}, {$or: [ {genero: "F"}, {edad:{$gt:50 }}]}}
+
+
+
+extras:
+-para obtener los documentos que terminen en "algo":
+{clave: {$regex:/(valor)$/}}
+
+-optener un valor que comience por letra a y no importe si es mayus o minus
+{nombre: {$regex:/^a/i}} la i significa que no importa su es mayus o minus
+
+Obtener aquellas personas que su apellido comienza con "P" (may o min), y nacieron en el año 1992, Y
+el idioma es distinto a "Italian"
+
+{apellido: {$regex:/^P/i}, fec_nac: {$regex:/1992$/}, idioma:{$ne:"Italian"}}
+
+-obtener un valor que tenga en alguna parte tenga un @
+{email: {$regex : /@/}}
+
+Obtener las personas que en su titulo contentan una "r" y hayan nacido en el mes de Diciembre
+{titulo:{$regex:/r/}, fec_nac:{$regex: /^.*\/12\/.*$/} } 
+
+otro ejemplo para buscar mascomplejo fec_nac:{$regex:/^.*\/01\/1985/ }
+
+-saber si un campo existe, ejemplo el estado civil
+{estado_civil:{$exists:true}}  
+
+busquedas avanzadas
+-para espesificar se vas en mongoDB a la parte de more options y a project lo que se requiere:  {nombre:1, apellido:1}
+
+Mostrar email de aquellas personas que tengan entre 20 y 30 años
+ejemplo: Mostrar email de aquellas personas que tengan entre 20 y 30 años
+filter : {edad:{$gte: 20, $lte:30}} ejemplo para and
+project: {email:1}
+
+- en Sort para ordenar de menor a mayor de coloca {valor:1}, de mayor a menor {valor:-1}
+-para limitar se utiliza la seccion de limite y se coloca la cantidad de documentos  que se quiere mostrar 
+- en la parte de Skip se utiliza para saltar la paginacion, se salta dependiendo del limite
+
+- para buscar algo que no contenga sierto valor utilizar $not, ejemplo { nombre: { $not: /x/ } }
+
+
+
+{$or:[{ apellido:{$regex:/h/i} }, {email:{$not:/x/}}] ,  edad:{$lte:30}, $or:[{fec_nac:{$regex:/^01/}}, {fec_nac:{$regex:/^02/}}] }
+
+
+
+-------------------------------**---------------------**--------------------------**------------------------------------**---
+
+FORMA PARA REALIZAR CONSULTAS
+{ clave: "valor" }
+{ <campo>: <valor> }
+{ <campo>: { <operador>: <valor> } }
+
+Ej:
+{ marca: "apple" } ----> consultamos todos los productos con marca Apple
+
+
+OPERADORES MATEMÁTICOS P/MongoDB
+
+$eq ----> igual que (equal)
+$ne ----> distinto que (not equal)
+$gt ----> valores mayores que (greater than)
+$gte ---> valores mayores o iguales que (greater than or equal)
+$lt ----> valores menores que (lower than)
+$lte ---> valores menores o iguales que (lower than or equal)
+
+
+OPERADORES LÓGICOS (AND, OR):
+
+AND
+{ <campo>: <valor>, <campo2>:<valor>, <campo3>:<valor> }
+
+
+EXTRAS:
+
+- Obtener los documentos que el un campo termine en "nifty.com"
+{ email: { $regex: /nifty.com$/ } }
+
+- Obtener documentos que un campo comienze con la letra "a" (no importa si es mayuscula o minuscula)
+{ nombre: { $regex: /^a/i } } ---> la "i" al final del regex, significa que no importa si es mayuscula o minuscula
+
+- Obtener una letra/palabra que este en el medio de un campo. Ej. emiliano@gmail.com
+{ email: { $regex: /gmail/ } }
+
+CONSULTAS DE EJEMPLO
+********************
+
+1. Obtener documentos que el nombre sea "Andrea"
+{ nombre: { $eq: "Andrea" } }
+{ nombre: "Andrea" }
+
+2. Obtener documentos que nombre NO sea "Peter"
+{ nombre: { $ne: "Peter" } }
+
+3. Obtener las personas mayores de edad
+{ edad: { $gte:18 } } 
+
+4. Obtener aquellas personas que sean mayor de edad Y tengan talle "M"
+{ edad: { $gte: 18 } , talle: "M" }
+
+5. Obtener las personas de genero Femenino que sean menor de edad
+{ edad: { $lt:18 } , genero: "F" }
+
+6. A la consulta anterior, agregar aquelas cuyo talle de remera no sea L
+{ genero: "F", edad: { $lt: 18 }, talle: { $ne: "L" } }
+
+7. Obtener aquellas personas cuyo nombre termine en "a" y su talle sea el "S"
+{ nombre: { $regex: /a$/ }, talle: "S" }
+
+8. Obtener aquellas personas que su apellido comienza con "P" (may o min), y nacieron en el año 1992, Y
+el idioma es distinto a "Italian"
+{ apellido: { $regex: /^p/i }, fec_nac: { $regex: /1992$/ }, idioma : { $ne: "Italian" } }
+
+9. Obtener las personas que en su titulo contentan una "r" y hayan nacido en el mes de Diciembre
+{ titulo: { $regex: /r/ }, fec_nac: { $regex: /^.*/\12\/.*$/ } }
+
+
+--------xx------------xx-----------------xx-----------------xx-------------------xx------------------xx--------------------xx-----------
+Ejericio grupal:
+
+- Alquiler de autos
+- Crear la colección correspondiente (sólo una)
+- Insertar al menos 5 documentos (con los datos necesarios)
+- CONSULTAS:
+  - buscar documentos que el auto sea marca: "Peugeot" // {marca:"Peugeot}
+  - buscar documentos que el total (precio) sea mayor a 10000 o que el cliente exista, ordenar por precio de menor a mayor // {$or: [{precio:{$gt: 10000}}, {nombre:{$ne:""}}]}
+  - buscar documentos que fecha de alquiler sea del 2022 (usar regex) // {fecha:{$regex:/2022$/}}
+  - buscar todos los documentos de un cliente en particular, mostrar sólo el campo total. // {nombre:"Ana"}, {precio:1, _id:0}
+  - buscar documentos que el auto alquilado NO sea "Audi" y SI sea "Fiat" o "Chevrolet" o "Ford" // {marca:{$ne:"Audi"},$or: [{marca:"fiat"}, {marca:"Ford"},{marca:"Chevrolet"}]}
+
+
+  Mostrar los 2º 6 documentos de personas que tengan una "h" en su apellido, o no tengan una "x" en su email.
+  Y el talle sea M o S pero no tengan más de 30 años de edad, y hayan nacido los primeros 2 días del año.
+
+
+  {$or:[{ apellido:{$regex:/h/i} }, {email:{$not:/x/}}] , $or:[{talle:"M"},{talle:"S"}], edad:{$lte:30}, $or:[{fec_nac:{$regex:/^01/01/}}, {fec_nac:{$regex:/^02/01/}}] }
+
+  {$or:[{ apellido:{$regex:/h/i} }, {email:{$not:/x/}}] , edad:{$lte:30}, $or:[{fec_nac:{$regex:/^01/}}, {fec_nac:{$regex:/^02/}}], fec_nac: { $regex: /^.*/\01\/.*$/ } , $or:[{talle:"M"},{talle:"S"}]}
