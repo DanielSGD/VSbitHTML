@@ -1,0 +1,22 @@
+el comando para que se cree el packege.json es: npm init  y con npm init -y para crearlo por defecto rapido
+para saber la vercion y si esta instalado es: node -v
+npm install nodemon -  para insatalar nodemon - nodemon es un paquete deja prendido el servidor
+npm install body-parser
+npm install express
+npx nodemon index.js para predender el nodemon
+
+get: busco algo
+post: inserto algo
+put : actualizo algo
+delete : elimina algo
+
+
+Pasos para NODE:
+
+1) Crear una carpeta
+2) Crear un archivo "package.json" (npm init)
+3) Crear el archivo principal (index.js)
+  3.1) Crear servidor HTTP para dar respuesta al Cliente
+  3.2) Enviar respuesta
+4) "Encender" el servidor (npx nodemon index.js)
+

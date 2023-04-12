@@ -66,7 +66,7 @@ DB.miColeccion.deleteMany({condicion}) elimina TODOS los elementos que cumplan c
 
 actualizar o modificar documentos
 *******************
-db.miColeccion.opdateOne({condicion}, {$set:{valor:"el valor que quiero cambiar" }} )
+db.miColeccion.updateOne({condicion}, {$set:{valor:"el valor que quiero cambiar" }} )
 
 db.miColeccion.updateMany({ condicion }, { $set: { dato: nuevoValor } }) ---> actualiza TODOS documento que cumplen con la condición, y actuzaliza/modifica el "dato" con el nuevo "nuevoValor"
 
@@ -74,3 +74,23 @@ colocar fecha en la bd por la consola
 *******************
 
 {fecha:new date{date.now{}} } para colocar la fecha de actual
+
+buscar en un objeto ejemplo 
+*******************
+{
+    nombre: "María",
+    edad: 30,
+    datos_personales: {
+      email: "maria@example.com",
+      teléfono: "1234567890",
+      dirección: "Calle Falsa 123"
+    }
+  }
+
+para buscar el email lo hacemos: db.miColeccion.find({ "datos_personales.email": "maria@example.com" })
+
+db.peliculas.find( { year :{ $gte: 1990  }, year:{ $lt: 1999  }} )
+
+"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+
+db.peliculas.updateOne({title:"Samuel L. Jackson" }, {$set:{actors:"Samuel L. Jackson" a la película " }} )
